@@ -15,6 +15,15 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
+        // ### For Controller Test ### //
+        //public AccountController()
+        //{
+        //}
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
 
         //Basic User Account Info here...
         private readonly MrFixItContext _db;
@@ -28,11 +37,6 @@ namespace MrFixIt.Controllers
             _db = db;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -45,7 +49,6 @@ namespace MrFixIt.Controllers
                 return View();
             }
         }
-
 
         public IActionResult Register()
         {

@@ -13,6 +13,13 @@ namespace MrFixIt.Controllers
     public class WorkersController : Controller
     {
         private MrFixItContext db = new MrFixItContext();
+
+        // ### For Controller Test ### //
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
         // GET: /<controller>/
         public IActionResult Index()
         {

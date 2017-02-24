@@ -13,17 +13,27 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // GET: /<controller>/
+        // ### For Controller Test ### //
+        public HomeController()
+        {
+        }
         public IActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                var thisWorker = db.Workers.FirstOrDefault(item => item.UserName == User.Identity.Name);
-                return View(thisWorker);
-            } else
-            {
-                return View();
-            }
+            return View();
         }
+
+        // GET: /<controller>/
+
+        //public IActionResult Index()
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        var thisWorker = db.Workers.FirstOrDefault(item => item.UserName == User.Identity.Name);
+        //        return View(thisWorker);
+        //    } else
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

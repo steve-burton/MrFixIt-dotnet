@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MrFixIt", "src\MrFixIt\MrFixIt.xproj", "{0FC86F4A-31BC-4EB4-A6F5-5B85C3A5B5CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3FB4FDC1-11EA-4045-96CE-34621841D1AC}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MrFixIt.Tests", "MrFixIt.Tests\MrFixIt.Tests.xproj", "{62816C97-4786-44FF-80E5-11D11A683113}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +27,16 @@ Global
 		{0FC86F4A-31BC-4EB4-A6F5-5B85C3A5B5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FC86F4A-31BC-4EB4-A6F5-5B85C3A5B5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FC86F4A-31BC-4EB4-A6F5-5B85C3A5B5CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62816C97-4786-44FF-80E5-11D11A683113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62816C97-4786-44FF-80E5-11D11A683113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62816C97-4786-44FF-80E5-11D11A683113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62816C97-4786-44FF-80E5-11D11A683113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0FC86F4A-31BC-4EB4-A6F5-5B85C3A5B5CA} = {707448DA-AB0E-452C-82FA-336A6811318E}
+		{62816C97-4786-44FF-80E5-11D11A683113} = {3FB4FDC1-11EA-4045-96CE-34621841D1AC}
 	EndGlobalSection
 EndGlobal

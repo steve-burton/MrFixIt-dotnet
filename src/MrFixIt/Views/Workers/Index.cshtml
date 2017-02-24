@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 @using MrFixIt.Models
 
@@ -15,8 +12,24 @@
                 dataType: 'json',
                 data: $(this).serialize(),
                 success: function (result) {
-                    var resultMessage = result.title + ' ' + result.description + ' is in progress.'
+                    var resultMessage = result.title + ' ' + result.description + ' is in progress.';
                     $('.display-pending').html(result);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('.completed-view').click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CompletedJob", "Workers")',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    var resultMessage = result.title + ' ' + result.description + ' has been completed.';
+                    $('.display-completed').html(result);
                 }
             });
         });
@@ -31,11 +44,25 @@
         <h3>Your Current Jobs:</h3>
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
-            <form action="WorkingJob" class="pending-view">
-                <input type="hidden" value="@Job.JobId" name="id" />
-                <button type="submit" class="btn btn-default">Add to jobs in progress</button>
-            </form>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>@Job.Title</h4>
+                </div>
+
+                <div class="col-sm-3">
+                    <form action="WorkingJob" class="pending-view">
+                        <input type="hidden" value="@Job.JobId" name="id" />
+                        <button type="submit" class="btn btn-default">Add to jobs in progress</button>
+                    </form>
+                </div>
+
+                <div class="col-sm-3">
+                    <form action="CompletedJob" class="completed-view">
+                        <input type="hidden" value="@Job.JobId" name="id" />
+                        <button type="submit" class="btn btn-default">Add to completed jobs</button>
+                    </form>
+                </div>
+            </div>
         }
         @if (Model.Avaliable)
         {
