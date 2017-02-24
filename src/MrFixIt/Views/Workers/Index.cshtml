@@ -3,7 +3,25 @@
 *@
 @{
 }
+@using MrFixIt.Models
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.pending-view').click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("WorkingJob", "Workers")',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    var resultMessage = result.title + ' ' + result.description + ' is in progress.'
+                    $('.display-pending').html(result);
+                }
+            });
+        });
+    });
+</script>
 
 @if (User.Identity.IsAuthenticated)
 {
@@ -14,7 +32,10 @@
         @foreach (var Job in Model.Jobs)
         {
             <h5>@Job.Title</h5>
-
+            <form action="WorkingJob" class="pending-view">
+                <input type="hidden" value="@Job.JobId" name="id" />
+                <button type="submit" class="btn btn-default">Add to jobs in progress</button>
+            </form>
         }
         @if (Model.Avaliable)
         {
@@ -26,3 +47,17 @@
         }
     </div>
 }
+<hr />
+<div class="row">
+    <div class="col-sm-6">
+        <h4>These are the jobs you are currently working on</h4>
+        <div class="display-pending"></div>
+    </div>
+    <div class="col-sm-6">
+        <h4>These are the jobs you've completed</h4>
+        <div class="display-completed"></div>
+    </div>
+</div>
+@*@if (@Job.Pending == true)
+{   
+}*@
