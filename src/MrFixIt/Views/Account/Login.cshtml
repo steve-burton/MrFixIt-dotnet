@@ -5,16 +5,18 @@
 @using MrFixIt.ViewModels
 
 @model LoginViewModel
+<div class="create-job-page">
+    <h2>Log in with your account</h2>
+    <div class="trans-background">
+        @using (Html.BeginForm())
+        {
+            @Html.LabelFor(m => m.Email)<br />
+            @Html.TextBoxFor(m => m.Email)<br />
 
-<h2>Log in with your account</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+            @Html.LabelFor(m => m.Password)<br />
+            @Html.PasswordFor(m => m.Password)<br />
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
+            <input type="submit" value="Log in" class="btn btn-default" />
+        }
+    </div>
+</div>

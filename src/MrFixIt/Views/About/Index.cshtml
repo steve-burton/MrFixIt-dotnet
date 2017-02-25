@@ -1,10 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewBag.Title = "About";
 }
 
 
-<p>This is the About Page</p>
+<div class="row">
+    <div class="col-sm-6 about-page">
+        <h1>About Mr. Fix-It</h1>
+        <hr />
+        <div class="home-text">
+            <p>Our professional, uniformed, fully insured technicians arrive on time in a marked van and clean up when they’ve finished the job. Our Vision is to be the first-choice provider of maintenance, repair, and improvement solutions for your home and business.</p>
+            <h3>Contact us</h3>
+            <h4>Mr. Fix-It</h4>
+            Anytown<br />
+            City, State 12345<br />
+            Email: <a href="mailto:burton.stevenv@gmail.com">info@mrfixit.com</a><br />
+            Phone: 888-555-1234<br />
 
-@Html.ActionLink("Home", "Index", "Home")
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <img src="~/img/cordless-drill.jpg" class="main-photo about-photo" />
+    </div>
+</div>

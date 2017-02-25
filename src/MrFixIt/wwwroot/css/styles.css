@@ -45,7 +45,7 @@ div.current-jobs h2 {
 }
 div.current-jobs a {
     color: antiquewhite;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 div.list-jobs p {
     font-size: 1.1em;
@@ -56,4 +56,35 @@ div.list-jobs h4 {
 
 span.bold {
     font-size: 1.3em;
+}
+
+div.about-page {
+    color: antiquewhite;
+}
+div.about-page a {
+    color: tan;
+    font-size: 1.1em;
+}
+img.about-photo {
+    margin-top: 30px;
+}
+
+div.create-job-page {
+    color: #3d2103;
+}
+div.create-job-page h2 {
+    color: antiquewhite;
+    margin-bottom: 20px;
+}
+div.create-job-page a {
+    color: #895a27;
+    font-size: 1.2em;
+}
+div.create-job-page input {
+    margin-bottom: 15px;
+    width: 70%;
+    border-radius: 7px;
+}
+div.create-job-page input.btn {
+    width: 110px;
 }
