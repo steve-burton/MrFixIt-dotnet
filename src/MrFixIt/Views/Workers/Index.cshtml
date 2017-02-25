@@ -6,15 +6,12 @@
     $(document).ready(function () {
         $('.pending-view').submit(function (event) {
             event.preventDefault();
-            console.log("hello first");
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 data: $(this).serialize(),
                 url: '@Url.Action("PendingJob", "Jobs")',               
                 success: function (result) {
-                    console.log("hello pending");
-                    console.log("hello" + result);
                     var resultMessage = "<strong>" + result.title + " - " + "</strong>" + result.description;
                     $('.display-pending').html(resultMessage);
                 }
@@ -25,14 +22,12 @@
     $(document).ready(function () {
         $('.completed-view').submit(function (event) {
             event.preventDefault();
-            console.log("hello second");
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 data: $(this).serialize(),
                 url: '@Url.Action("CompletedJob", "Jobs")',              
                 success: function (result) {
-                    console.log("hello" + result);
                     var resultMessage = "<strong>" + result.title + " - " + "</strong>" + result.description;
                     $('.display-completed').html(resultMessage);
                 }
