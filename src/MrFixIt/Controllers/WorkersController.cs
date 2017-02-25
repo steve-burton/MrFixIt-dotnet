@@ -39,7 +39,6 @@ namespace MrFixIt.Controllers
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Create(Worker worker)
         {

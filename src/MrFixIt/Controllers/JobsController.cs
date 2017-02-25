@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Immutable;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -56,21 +58,19 @@ namespace MrFixIt.Controllers
         }
 
         [HttpPost]
-        public IActionResult WorkingJob(bool WorkingJob)
-        {          
-            var thisJob = db.Jobs.FirstOrDefault(job => job.Pending == WorkingJob);
+        public IActionResult PendingJob(int id)
+        {
+            Job thisJob = db.Jobs.FirstOrDefault(job => job.JobId == id);
             thisJob.Pending = true;
-            db.Jobs.Add(thisJob);
             db.SaveChanges();
             return Json(thisJob);
         }
 
         [HttpPost]
-        public IActionResult CompletedJob(bool CompletedJob)
+        public IActionResult CompletedJob(int id)
         {
-            var thisJob = db.Jobs.FirstOrDefault(job => job.Completed == CompletedJob);
+            Job thisJob = db.Jobs.FirstOrDefault(job => job.JobId == id);
             thisJob.Completed = true;
-            db.Jobs.Add(thisJob);
             db.SaveChanges();
             return Json(thisJob);
         }
