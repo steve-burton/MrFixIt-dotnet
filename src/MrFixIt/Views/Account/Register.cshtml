@@ -5,19 +5,21 @@
 @using MrFixIt.ViewModels
 
 @model RegisterViewModel
+<div class="create-job-page">
+    <h2>Register a new worker</h2>
+    <div class="trans-background">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.LabelFor(m => m.Email)<br />
+            @Html.TextBoxFor(m => m.Email)<br />
 
-<h2>Register a new worker</h2>
-<hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+            @Html.LabelFor(m => m.Password)<br />
+            @Html.PasswordFor(m => m.Password)<br />
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+            @Html.LabelFor(m => m.ConfirmPassword)<br />
+            @Html.PasswordFor(m => m.ConfirmPassword)<br />
 
-    @Html.LabelFor(m => m.ConfirmPassword)
-    @Html.PasswordFor(m => m.ConfirmPassword)
-
-    <input type="submit" value="Register" />
-}
+            <input type="submit" value="Register" class="btn btn-default" />
+        }
+    </div>
+</div>
