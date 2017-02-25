@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
+﻿
 <script type="text/javascript">
     $(document).ready(function () {
         $('.claim-view').click(function (event) {
@@ -19,34 +16,31 @@
     });
 </script>
 
-<div class="text-center">
-    <h3>Our Current Jobs</h3>
+<div class="text-center current-jobs">
+    <h2>Our Current Jobs</h2>
     @Html.ActionLink("Add a new job", "Create")
 </div>
 @foreach (var Job in Model)
 {
-    <ul>
-        <li>@Job.Title</li>
-        <ul>
-            <li>@Job.Description</li>
-        </ul>
-        @if (Job.Worker == null)
-        {
-            <li class="btn">This job is unclaimed.</li>
-            <form action="Claim" class="claim-view">
-                <input type="hidden" value="@Job.JobId" name="id" />
-                <button type="submit">Claim this job</button>
-            </form>
-        }
-        else
-        {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
-        }
-    </ul>
-
-
-    <hr />
+    <div class="trans-background">
+        <div class="list-jobs">           
+                <h4>@Job.Title</h4>              
+                <p>@Job.Description</p>
+                @if (Job.Worker == null)
+                {
+                    <p>This job is unclaimed.</p>
+                    <form action="Claim" class="claim-view">
+                        <input type="hidden" value="@Job.JobId" name="id" />
+                        <button type="submit">Claim this job</button>
+                    </form>
+                }
+                else
+                {
+                    <p>This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</p>
+                }
+            
+        </div>
+    </div>
 }
 <div class="display-claim"></div>
 

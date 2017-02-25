@@ -38,53 +38,58 @@
 
 @if (User.Identity.IsAuthenticated)
 {
+    <div class="trans-background">
+        <div class="text-center">
+            <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
+            <h3>Your Current Jobs:</h3>
+            @foreach (var Job in Model.Jobs)
+            {
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h4>@Job.Title</h4>
+                    </div>
 
-    <div class="text-center">
-        <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
-        <h3>Your Current Jobs:</h3>
-        @foreach (var Job in Model.Jobs)
-        {
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4>@Job.Title</h4>
-                </div>
+                    <div class="col-sm-4">
+                        <form action="WorkingJob" class="pending-view">
+                            <input type="hidden" value="@Job.JobId" name="id" />
+                            <button type="submit" class="btn btn-default">Add to jobs in progress</button>
+                        </form>
+                    </div>
 
-                <div class="col-sm-3">
-                    <form action="WorkingJob" class="pending-view">
-                        <input type="hidden" value="@Job.JobId" name="id" />
-                        <button type="submit" class="btn btn-default">Add to jobs in progress</button>
-                    </form>
+                    <div class="col-sm-3">
+                        <form action="CompletedJob" class="completed-view">
+                            <input type="hidden" value="@Job.JobId" name="id" />
+                            <button type="submit" class="btn btn-default">Add to completed jobs</button>
+                        </form>
+                    </div>
                 </div>
-
-                <div class="col-sm-3">
-                    <form action="CompletedJob" class="completed-view">
-                        <input type="hidden" value="@Job.JobId" name="id" />
-                        <button type="submit" class="btn btn-default">Add to completed jobs</button>
-                    </form>
-                </div>
-            </div>
-        }
-        @if (Model.Avaliable)
-        {
-            <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
-        }
-        else
-        {
-            <p>You are already assigned to a job.</p>
-        }
+            }
+            @if (Model.Avaliable)
+            {
+                <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
+            }
+            else
+            {
+                <p>You are already assigned to a job.</p>
+            }
+        </div>
     </div>
 }
-<hr />
-<div class="row">
-    <div class="col-sm-6">
-        <h4>These are the jobs you are currently working on</h4>
-        <div class="display-pending"></div>
+
+    <div class="trans-background">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Pending jobs</h4>
+                <hr />
+                <div class="display-pending"></div>
+            </div>
+            <div class="col-sm-6">
+                <h4>Completed jobs</h4>
+                <hr />
+                <div class="display-completed"></div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-6">
-        <h4>These are the jobs you've completed</h4>
-        <div class="display-completed"></div>
-    </div>
-</div>
-@*@if (@Job.Pending == true)
-{   
-}*@
+    @*@if (@Job.Pending == true)
+        {
+        }*@

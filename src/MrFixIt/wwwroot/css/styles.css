@@ -1,4 +1,55 @@
-﻿body {
+﻿.navbar-inverse {
+    background-color: #3d2103;
+    border-color: #281602;
+}
+img.main-photo {
+    width: 100%;
+}
+body {
     padding-top: 70px;
-    color: navy;
+    color: #3d2103;
+    background-image: url("../img/wood-background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body h1 {
+    color: white;
+    font-size: 4em;
+    font-weight: 200;
+}
+body a {
+    color: #895a27;
+}
+body a:hover {
+    color: #a5743e;
+}
+div.home-text p {
+    font-size: 1.1em;
+    color: antiquewhite;
+}
+
+div.trans-background {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px 40px 15px 40px;
+    margin-bottom: 20px;
+}
+
+div.current-jobs {
+    margin-bottom: 15px;
+}
+div.current-jobs h2 {
+    color: white;
+    font-size: 2.5em;
+}
+div.current-jobs a {
+    color: antiquewhite;
+    font-size: 1.5em;
+}
+div.list-jobs p {
+    font-size: 1.1em;
+}
+div.list-jobs h4 {
+    font-size: 1.4em;
 }

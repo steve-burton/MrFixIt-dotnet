@@ -4,17 +4,29 @@
 
 @using System.Security.Claims
 
-<h2>Mr. Fix-It</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-    <h4>Hello @User.Identity.Name!</h4>
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Mr. Fix-It</h1>
+        <hr />
+        <div class="home-text">
+            <p>Our professional handyman service is your one-stop shop for a wide range of home maintenance and repair solutions. Our service technicians are highly skilled craftsmen, so you know they will get the job done right the first time.</p>
+            <p>“Handyman“  uniformed, fully insured technicians arrive on time in a marked van and clean up when they’ve finished the job. Our Vision is to be the first-choice provider of maintenance, repair, and improvement solutions for your home and business.</p>
+            <p>We provide carpentry services that are performed by skilled workers and artisans who have years of experience in this field. Whether it is crafting furniture or cupboards or showcases, we offer complete carpentry services to meet the needs and budgets of our clients.</p>
+        </div>    
+    </div>
+    <div class="col-sm-6"><br />
+        <div class="trans-background">
+            @if (User.Identity.IsAuthenticated)
+        {
+                <h4>Hello @User.Identity.Name!</h4>
 
-} else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
-}
-
-
-
+            }
+            else
+            {
+                <h4>@Html.ActionLink("Register", "Register") | @Html.ActionLink("Log in", "Login")</h4>
+            }
+            
+        </div>
+        <img src="~/img/handyman.jpg" class="main-photo" />
+    </div>
+</div>
