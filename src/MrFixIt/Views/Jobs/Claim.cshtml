@@ -1,5 +1,22 @@
 ﻿
 @model MrFixIt.Models.Job
+<script>
+    $(document).ready(function () {
+        $('.claim-view').click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+                url: '@Url.Action("ClaimDone")',
+                success: function (result) {
+                    //$('.display-claim').html(result);
+                }
+            });
+        });
+    });
+</script>
+
 
 <div class="trans-background">
     <h2>Would you like to do this job?</h2>

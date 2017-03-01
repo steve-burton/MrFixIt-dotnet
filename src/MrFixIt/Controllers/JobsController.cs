@@ -58,6 +58,15 @@ namespace MrFixIt.Controllers
         }
 
         [HttpPost]
+        public IActionResult ClaimDone(int id)
+        {
+            Job thisJob = db.Jobs.FirstOrDefault(job => job.JobId == id);
+            thisJob.Pending = true;
+            db.SaveChanges();
+            return Json(thisJob);
+        }
+
+        [HttpPost]
         public IActionResult PendingJob(int id)
         {
             Job thisJob = db.Jobs.FirstOrDefault(job => job.JobId == id);
