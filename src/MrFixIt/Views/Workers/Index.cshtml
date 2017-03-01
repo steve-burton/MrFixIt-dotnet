@@ -84,6 +84,13 @@
         <div class="col-sm-6">
             <h4>Pending jobs</h4>
             <hr />
+            @foreach (var Job in Model.Jobs)
+            {
+                @if (Job.Pending == true)
+                {
+                   <strong>@Job.Title</strong> <br />
+                }
+            }
             <div class="display-pending"></div>
         </div>
         <div class="col-sm-6">
@@ -93,9 +100,10 @@
             {
                 @if (Job.Completed == true)
                 {
-                    <div class="display-completed"></div>
+                   <strong>@Job.Title</strong> <br />
                 }
-            }                 
+            }
+            <div class="display-completed"></div>                 
         </div>
     </div>
 </div>
